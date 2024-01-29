@@ -17,9 +17,9 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-COPY --from=build /app /app
+COPY --from=build /app/.output /app
 
 ENV HOST 0.0.0.0
-EXPOSE 7002
+EXPOSE 8001
 
-ENTRYPOINT [ "node",".output/server/index.mjs" ]
+ENTRYPOINT [ "node","server/index.mjs" ]
