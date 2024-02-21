@@ -16,6 +16,12 @@ module.exports = {
           primary:{
             main: "#1041B7",
             surface: "#E7ECF8",
+          },
+          success:{
+            main: "#179D5E",
+          },
+          error:{
+            main:"#DD2E2E"
           }
         },
       },
