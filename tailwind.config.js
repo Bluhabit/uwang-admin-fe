@@ -12,6 +12,12 @@ module.exports = {
       colors: {
         primary: "#0089FF",
         white: "#FFFFFF",
+        state : {
+          primary:{
+            main: "#1041B7",
+            surface: "#E7ECF8",
+          }
+        },
       },
     },
   },
