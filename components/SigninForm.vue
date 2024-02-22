@@ -1,3 +1,15 @@
+<script setup lang="ts">
+// import { BiEyeFill, BiEyeSlashFill } from "oh-vue-icons/icons";
+import { ref } from 'vue'
+const logo = "/logo.png"
+
+const passwordVisible = ref(false)
+
+const switchVisibility = () => {
+    passwordVisible.value = !passwordVisible.value
+}
+</script>
+
 <template>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 p-5 items-center justify-center">
         <div class="flex flex-col card border rounded-lg py-12 px-12 bg-primary w-full h-[540px]">
@@ -49,15 +61,3 @@
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-// import { BiEyeFill, BiEyeSlashFill } from "oh-vue-icons/icons";
-import { ref } from 'vue'
-const logo = "/logo.png"
-
-const passwordVisible = ref(false)
-
-const switchVisibility = () => {
-    passwordVisible.value = !passwordVisible.value
-}
-</script>
