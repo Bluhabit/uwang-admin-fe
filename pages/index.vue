@@ -11,7 +11,6 @@ onMounted(async ()=>{
 
 <template>
   <div> 
-    <Sidebar/>
     <button @click="auth.singIn()"></button>
     <h1 class="bg-green-500">Nuxt Routing set up successfully!</h1>
     <p>Current route: {{ route.path }}</p>
