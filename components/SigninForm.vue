@@ -23,13 +23,15 @@
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700 mb-2 text-sm text-gray-500">Email</label>
                         <input type="text" id="email" name="email"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm">
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm"
+                            placeholder="Masukkan email Anda">
                     </div>
                     <div class="mb-6">
                         <label for="password" class="block text-gray-700 mb-2 text-sm text-gray-500">Password</label>
                         <div class="relative">
                             <input :type="passwordVisible ? 'text' : 'password'" id="password" name="password"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm">
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm"
+                                placeholder="Masukkan password Anda">
                             <button @click="switchVisibility" type="button">
                                 <!-- <BiEyeFill v-if="passwordVisible" />
                                 <BiEyeSlashFill v-else /> -->
