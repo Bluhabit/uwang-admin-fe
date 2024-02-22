@@ -1,3 +1,24 @@
+<script setup lang="ts">
+// import { BiEyeFill, BiEyeSlashFill } from "oh-vue-icons/icons";
+import { ref } from 'vue'
+const logo = "/logo.png"
+const modal = "/modal.png"
+const passwordVisible = ref(false)
+const showModal = ref(false)
+
+const switchVisibility = () => {
+    passwordVisible.value = !passwordVisible.value
+}
+
+const openModal = () => {
+    showModal.value = true
+}
+
+const closeModal = () => {
+    showModal.value = false
+}
+</script>
+
 <template>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 p-5 items-center justify-center">
         <div class="flex flex-col card border rounded-lg py-12 px-12 bg-primary w-full h-[540px]">
@@ -23,13 +44,16 @@
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700 mb-2 text-sm text-gray-500">Email</label>
                         <input type="text" id="email" name="email"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm">
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm"
+                            placeholder="Masukkan email Anda">
+
                     </div>
                     <div class="mb-6">
                         <label for="password" class="block text-gray-700 mb-2 text-sm text-gray-500">Password</label>
                         <div class="relative">
                             <input :type="passwordVisible ? 'text' : 'password'" id="password" name="password"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm">
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm"
+                                placeholder="Masukkan password Anda">
                             <button @click="switchVisibility" type="button">
                                 <!-- <BiEyeFill v-if="passwordVisible" />
                                 <BiEyeSlashFill v-else /> -->
@@ -63,24 +87,3 @@
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-// import { BiEyeFill, BiEyeSlashFill } from "oh-vue-icons/icons";
-import { ref } from 'vue'
-const logo = "/logo.png"
-const modal = "/modal.png"
-const passwordVisible = ref(false)
-const showModal = ref(false)
-
-const switchVisibility = () => {
-    passwordVisible.value = !passwordVisible.value
-}
-
-const openModal = () => {
-    showModal.value = true
-}
-
-const closeModal = () => {
-    showModal.value = false
-}
-</script>
