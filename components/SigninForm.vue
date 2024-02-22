@@ -2,7 +2,7 @@
 // import { BiEyeFill, BiEyeSlashFill } from "oh-vue-icons/icons";
 import { ref } from 'vue'
 const logo = "/logo.png"
-
+const noise = "/Noise.png"
 const passwordVisible = ref(false)
 
 const switchVisibility = () => {
@@ -12,7 +12,8 @@ const switchVisibility = () => {
 
 <template>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 p-5 items-center justify-center">
-        <div class="flex flex-col card border rounded-lg py-12 px-12 bg-primary w-full h-[540px]">
+        <div class="flex flex-col card border rounded-lg py-12 px-12 bg-primary w-full h-full relative overflow-hidden">
+            <img :src="noise" alt="Noise" class="absolute inset-0 object-cover z-0 w-full h-full">
             <img :src="logo" alt="Logo" class="w-5/12">
             <h1 class="text-2xl font-medium text-white mb-4">
                 Hello
@@ -46,7 +47,7 @@ const switchVisibility = () => {
                                 placeholder="Masukkan password Anda">
                             <button @click="switchVisibility" type="button">
                                 <!-- <BiEyeFill v-if="passwordVisible" />
-                                <BiEyeSlashFill v-else /> -->
+                  <BiEyeSlashFill v-else /> -->
                             </button>
                         </div>
                     </div>
