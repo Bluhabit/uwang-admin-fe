@@ -1,18 +1,18 @@
 <script setup lang="ts">
 
-const props = defineProps(['dataStatistic']);
+const props = defineProps(['statistic']);
 </script>
 
 <template>
   <div>
     <div class="flex gap-6 py-6 pb-4 pt-2 justify-start items-center">
       <StatisticCard 
-      v-for="(statistic, index) in props.dataStatistic" 
+      v-for="(statistic, index) in props.statistic" 
       :key="index"
       :icons="statistic.cardIcons"
       :title="statistic.cardTitle" 
       :subtitle="statistic.cardSubtitle"
-      :data-statistic="statistic.dataStatistic" 
+      :statistic="statistic.statistic" 
     />
     </div>
   </div>

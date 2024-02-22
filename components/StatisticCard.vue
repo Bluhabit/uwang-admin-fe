@@ -3,7 +3,7 @@ const props = defineProps([
   "icons",
   "title",
   "subtitle",
-  "dataStatistic",
+  "statistic",
 ]);
 </script>
 
@@ -16,10 +16,10 @@ const props = defineProps([
       <p class="font-normal text-base">{{ title }}</p>
       <div class="flex gap-2">
         <h1 class="font-semibold text-2xl">{{ subtitle }}</h1>
-        <div v-show="dataStatistic" class="flex gap-1 items-center">
+        <div v-show="statistic" class="flex gap-1 items-center">
           <img
             :src="
-              dataStatistic < 0
+              statistic < 0
                 ? 'image/trending-down.svg'
                 : 'image/trending-up.svg'
             "
@@ -27,12 +27,12 @@ const props = defineProps([
           />
           <p
             :class="
-              dataStatistic < 0
+              statistic < 0
                 ? 'text-state-error-main'
                 : 'text-state-success-main'
             "
           >
-            {{ dataStatistic < 0 ? "" : "+" }}{{ props.dataStatistic }}
+            {{ statistic < 0 ? "" : "+" }}{{ props.statistic }}
           </p>
         </div>
       </div>
