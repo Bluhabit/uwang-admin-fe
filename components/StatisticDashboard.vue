@@ -1,6 +1,10 @@
 <script setup lang="ts">
 
-const props = defineProps(['statistic']);
+const props = defineProps({
+  statistic:{
+    type:Array<Statistic>,
+  }
+});
 </script>
 
 <template>
@@ -9,10 +13,11 @@ const props = defineProps(['statistic']);
       <StatisticCard 
       v-for="(statistic, index) in props.statistic" 
       :key="index"
-      :icons="statistic.cardIcons"
-      :title="statistic.cardTitle" 
-      :subtitle="statistic.cardSubtitle"
-      :statistic="statistic.statistic" 
+      :icon="statistic.icon"
+      :title="statistic.title" 
+      :amount="statistic.amount"
+      :statistic="statistic.statistic"
+      :show-statistic="statistic.showStatistic" 
     />
     </div>
   </div>
