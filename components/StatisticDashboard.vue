@@ -9,9 +9,9 @@ const props = defineProps(['dataStatistic']);
       <StatisticCard 
       v-for="(statistic, index) in props.dataStatistic" 
       :key="index"
-      :card-icons="statistic.cardIcons"
-      :card-title="statistic.cardTitle" 
-      :card-subtitle="statistic.cardSubtitle"
+      :icons="statistic.cardIcons"
+      :title="statistic.cardTitle" 
+      :subtitle="statistic.cardSubtitle"
       :data-statistic="statistic.dataStatistic" 
     />
     </div>

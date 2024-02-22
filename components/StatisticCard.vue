@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const props = defineProps([
-  "cardIcons",
-  "cardTitle",
-  "cardSubtitle",
+  "icons",
+  "title",
+  "subtitle",
   "dataStatistic",
 ]);
 </script>
@@ -10,12 +10,12 @@ const props = defineProps([
 <template>
   <div class="flex font-inter gap-4 p-6 items-center">
     <div class="bg-state-primary-surface rounded-full p-4 w-16 h-16">
-      <img :src="props.cardIcons" alt="" />
+      <img :src="props.icons" alt="" />
     </div>
     <div class="flex flex-col justify-center gap-2">
-      <p class="font-normal text-base">{{ cardTitle }}</p>
+      <p class="font-normal text-base">{{ title }}</p>
       <div class="flex gap-2">
-        <h1 class="font-semibold text-2xl">{{ cardSubtitle }}</h1>
+        <h1 class="font-semibold text-2xl">{{ subtitle }}</h1>
         <div v-show="dataStatistic" class="flex gap-1 items-center">
           <img
             :src="
