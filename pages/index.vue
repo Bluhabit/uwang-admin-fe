@@ -1,28 +1,19 @@
 <script setup lang="ts">
-const dataStatistic = ref([
-  {
-    cardIcons: "image/user.svg",
-    cardTitle: "Jumlah Pengguna",
-    cardSubtitle: "12.332",
-  },
-  {
-    cardIcons: "image/at-sign.svg",
-    cardTitle: "Jumlah Daftar Hari",
-    cardSubtitle: "2.234",
-    dataStatistic: 100,
-  },
-  {
-    cardIcons: "image/activity.svg",
-    cardTitle: "Jumlah pengguna aktif",
-    cardSubtitle: "5.122",
-    dataStatistic: -40,
-  },
-]);
+const route = useRoute()
+const {get} = useApi()
+
+const auth = useAuth()
+
+onMounted(async ()=>{
+  const result = await get("/api")
+})
 </script>
 
 <template>
   <div>
-    <h1>preview</h1>
-    <StatisticDashboard :data-statistic="dataStatistic" />
+    <button @click="auth.singIn()"></button>
+    <h1 class="bg-green-500">Nuxt Routing set up successfully!</h1>
+    <p>Current route: {{ route.path }}</p>
+    <a href="https://nuxt.com/docs/getting-started/routing" target="_blank">Learn more about Nuxt Routing</a>
   </div>
 </template>

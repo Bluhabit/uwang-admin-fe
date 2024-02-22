@@ -44,6 +44,6 @@ const dataStatistic = ref([
 <template>
   <div>
     <h1>preview</h1>
-    <StatisticDashboard :data-statistic="dataStatistic" />
+    <StatisticDashboard :statistic="dataStatistic" />
   </div>
 </template> -->
