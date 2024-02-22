@@ -36,7 +36,8 @@
                             </button>
                         </div>
                     </div>
-                    <p class="text-right text-sm text-blue-500 mb-4"><a href="#">Lupa password?</a></p>
+                    <p class="text-right text-sm text-blue-500 mb-4"><a @click.prevent="openModal" href="#">Lupa
+                            password?</a></p>
                     <div class="flex items-center justify-between">
                         <button type="submit"
                             class="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Masuk
@@ -46,16 +47,40 @@
             </div>
         </div>
     </div>
+
+    <div v-if="showModal" class="fixed inset-0 overflow-y-auto flex items-center justify-center z-50">
+        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
+        <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full">
+            <button @click="closeModal" type="button"
+                class="bg-transparent absolute top-4 right-4 text-gray-900 text-xl hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-transparent">X</button>
+            <div class="flex flex-col p-6 justify-center items-center">
+                <img :src="modal" alt="" class="mb-4">
+                <h1 class="text-center font-bold text-xl mb-2">Lupa password?</h1>
+                <h2 class="text-center text-xl text-gray-500">Hubungi super admin Anda untuk mengubah password.</h2>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
 // import { BiEyeFill, BiEyeSlashFill } from "oh-vue-icons/icons";
 import { ref } from 'vue'
 const logo = "/logo.png"
-
+const modal = "/modal.png"
 const passwordVisible = ref(false)
+const showModal = ref(false)
 
 const switchVisibility = () => {
     passwordVisible.value = !passwordVisible.value
+}
+
+const openModal = () => {
+    showModal.value = true
+}
+
+const closeModal = () => {
+    showModal.value = false
 }
 </script>
