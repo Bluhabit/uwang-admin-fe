@@ -1,3 +1,10 @@
+<script setup lang="ts">
+const formattedDate = computed(() => {
+  const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date().toLocaleDateString('id-ID', options);
+});
+</script>
+
 <template>
     <header class="bg-white shadow-md">
       <div class="container mx-auto flex justify-between items-center py-4">
@@ -15,13 +22,3 @@
       </div>
     </header>
 </template>
-
-<script setup lang="ts">
-const formattedDate = computed(() => {
-  const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date().toLocaleDateString('id-ID', options);
-});
-</script>
-
-
-
