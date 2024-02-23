@@ -1,7 +1,17 @@
 <template>
-    <main>
-        <div>
+    <div>
+      <!-- HeaderPage -->
+    </div>
+    <div>
+        <!-- sideBar -->
+    </div>
+    <div>
+        <slot>
 
-        </div>
-    </main>
-</template>
+            <!-- contennya masuk ke slot ini -->
+            <!-- StstisticCard -->
+            <!-- StstisticDashboard -->
+            <!-- DataTable -->
+        </slot> 
+    </div>
+  </template>
