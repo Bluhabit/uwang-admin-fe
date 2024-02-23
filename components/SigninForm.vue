@@ -58,7 +58,7 @@ const closeModal = () => {
                                 placeholder="Masukkan password Anda">
                             <button @click="switchVisibility" type="button">
                                 <!-- <BiEyeFill v-if="passwordVisible" />
-                                <BiEyeSlashFill v-else /> -->
+                  <BiEyeSlashFill v-else /> -->
                             </button>
                         </div>
                     </div>
