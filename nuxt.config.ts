@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss'],
   devtools: { enabled: true },
   imports:{
-    dirs:["common","store"]
+    dirs:["common","store","type"]
   },
   nitro:{
     routeRules:{
