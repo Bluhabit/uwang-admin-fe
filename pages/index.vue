@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const route = useRoute()
-const {get} = useApi()
+const { get } = useApi()
 
 const auth = useAuth()
 
-onMounted(async ()=>{
+onMounted(async () => {
   const result = await get("/api")
 })
 </script>
