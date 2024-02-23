@@ -30,7 +30,6 @@ const dataStatistic = ref<Array<Statistic>>([
       <template #leadingIcon>
         <img src="image/filter.svg" alt="">
       </template>
-
     </ButtonTable>
     <StatisticDashboard :statistic="dataStatistic" />
   </div>
