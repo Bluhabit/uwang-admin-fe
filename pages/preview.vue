@@ -24,8 +24,14 @@ const dataStatistic = ref<Array<Statistic>>([
 </script>
 
 <template>
-  <div>
-    <h1>preview</h1>
+  <div class="p-6">
+    <h1 class="mb-5">preview</h1>
+    <ButtonTable text="Add Filter">
+      <template #leadingIcon>
+        <img src="image/filter.svg" alt="">
+      </template>
+
+    </ButtonTable>
     <StatisticDashboard :statistic="dataStatistic" />
   </div>
 </template> 
