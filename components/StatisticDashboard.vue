@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
   <div>
-    <div class="flex gap-6 py-6 pb-4 pt-2 justify-start items-center">
+    <div class="flex gap-6 py-6 pb-4 pt-2 w-full justify-between items-center">
       <StatisticCard 
       v-for="(statistic, index) in props.statistic" 
       :key="index"

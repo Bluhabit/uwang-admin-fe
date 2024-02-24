@@ -17,13 +17,19 @@ const props = defineProps({
     <div class="flex w-full">
       <slot name="actionHeader"></slot>
     </div>
-    <table class="rounded-t-xl w-full border text-left my-5 border-separator">
-      <thead class="rounded-t-xl border-b border-b-separator">
+    <table
+      style="
+        -moz-border-top-left-radius: 0.75rem /* 12px */;
+        -moz-border-top-right-radius: 0.75rem /* 12px */;
+      "
+      class="rounded-t-xl w-full outline text-left my-5 outline-separator"
+    >
+      <thead class="border-b">
         <tr class="">
           <th
             v-for="(header, index) in headers"
             :key="index"
-            class="px-2 py-4 text-sm font-normal capitalize rounded-t-xl bg-neutral-gray-3"
+            class="px-2 py-4 text-sm font-normal capitalize bg-neutral-gray-3"
           >
             {{ header.name }}
           </th>

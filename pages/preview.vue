@@ -90,7 +90,7 @@ const items = [
         </div>
       </template>
       <template #status_user="{ item }">
-        <p class="bg-green-300 rounded-full p-3">{{ item.status_user }}</p>
+        <p class="bg-state-success-main text-white rounded-full px-2 py-1 w-fit">{{ item.status_user }}</p>
       </template>
     </DataTable>
   </div>
