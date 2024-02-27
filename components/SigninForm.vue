@@ -1,9 +1,5 @@
 <script setup lang="ts">
-// import { BiEyeFill, BiEyeSlashFill } from "oh-vue-icons/icons";
 import { ref } from 'vue'
-const logo = "/logo.png"
-const modal = "/modal.png"
-const noise = "/Noise.png"
 const passwordVisible = ref(false)
 const showModal = ref(false)
 
@@ -18,13 +14,15 @@ const openModal = () => {
 const closeModal = () => {
     showModal.value = false
 }
+
 </script>
 
 <template>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 p-5 items-center justify-center">
-        <div class="flex flex-col card border rounded-lg py-12 px-12 bg-primary w-full h-full relative overflow-hidden">
-            <img :src="noise" alt="Noise" class="absolute inset-0 object-cover z-0 w-full h-full">
-            <img :src="logo" alt="Logo" class="w-5/12">
+        <div
+            class="flex flex-col card border rounded-lg py-12 px-12 bg-state-primary-main w-full h-full relative overflow-hidden">
+            <img src="/Noise.png" alt="Noise" class="absolute inset-0 object-cover z-0 w-full h-full">
+            <img src="/logo.png" alt="Logo" class="w-5/12">
             <h1 class="text-2xl font-medium text-white mb-4">
                 Hello
                 <br />
@@ -54,19 +52,21 @@ const closeModal = () => {
                         <label for="password" class="block text-gray-700 mb-2 text-sm text-gray-500">Password</label>
                         <div class="relative">
                             <input :type="passwordVisible ? 'text' : 'password'" id="password" name="password"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 pr-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm"
                                 placeholder="Masukkan password Anda">
-                            <button @click="switchVisibility" type="button">
-                                <!-- <BiEyeFill v-if="passwordVisible" />
-                  <BiEyeSlashFill v-else /> -->
+                            <button @click="switchVisibility" type="button"
+                                class="absolute inset-y-0 right-0 flex items-center px-2">
+                                <img v-if="passwordVisible" src="image/eye-on.svg" alt="">
+                                <img v-else src="image/eye-off.svg" alt="">
                             </button>
                         </div>
+
                     </div>
                     <p class="text-right text-sm text-blue-500 mb-4"><a @click.prevent="openModal" href="#">Lupa
                             password?</a></p>
                     <div class="flex items-center justify-between">
                         <button type="submit"
-                            class="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Masuk
+                            class="bg-state-primary-main hover:bg-state-primary-hover text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Masuk
                         </button>
                     </div>
                 </form>
@@ -80,9 +80,10 @@ const closeModal = () => {
         </div>
         <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full">
             <button @click="closeModal" type="button"
-                class="bg-transparent absolute top-4 right-4 text-gray-900 text-xl hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-transparent">X</button>
+                class="bg-transparent absolute top-4 right-4 text-gray-900 text-xl hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-transparent">
+                <img src="/image/close.svg" alt=""></button>
             <div class="flex flex-col p-6 justify-center items-center">
-                <img :src="modal" alt="" class="mb-4">
+                <img src="/modal.png" alt="" class="mb-4">
                 <h1 class="text-center font-bold text-xl mb-2">Lupa password?</h1>
                 <h2 class="text-center text-xl text-gray-500">Hubungi super admin Anda untuk mengubah password.</h2>
             </div>
