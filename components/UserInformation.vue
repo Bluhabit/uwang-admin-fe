@@ -1,31 +1,19 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
-export default defineComponent({
-    data() {
-        return {
-            birthDate: new Date('1990-01-01'),
-            registerDate: new Date('2023-02-23'),
-            followerCount: 1000,
-            postCount: 500,
-            country: 'Indonesia',
-            lastActive: '2024-02-23',
-        };
-    },
-    computed: {
-        userName(): string {
-            return 'Trian Damai';
-        },
-        userEmail(): string {
-            return 'trian@gmail.com';
-        }
-    },
-    methods: {
-        formatDate(date: Date): string {
-            return date.toLocaleDateString('id-ID');
-        }
-    }
-});
+const birthDate = new Date('1990-01-01');
+const registerDate = new Date('2023-02-23');
+const followerCount = ref(1000);
+const postCount = ref(500);
+const country = 'Indonesia';
+const lastActive = '2024-02-23';
+
+const userName = 'Trian Damai';
+const userEmail = 'trian@gmail.com';
+
+function formatDate(date: Date): string {
+    return date.toLocaleDateString('id-ID');
+}
 </script>
 
 <template>
@@ -83,6 +71,3 @@ export default defineComponent({
 
     </div>
 </template>
-
-
-
