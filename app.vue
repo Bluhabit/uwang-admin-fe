@@ -3,7 +3,7 @@ import "./main.css"
 </script>
 <template>
   <div>
-    
+   
   </div>
   <NuxtPage />
 </template>

@@ -11,17 +11,17 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          blue:{
-            1:"#E7ECF8",
-            2:"#C6D1EE",
-            3:"#98ADE0",
-            4:"#6887D2",
-            5:"#3B63C4",
-            6:"#1041B7",
-            7:"#0E379C",
-            8:"#0B2E82",
-            9:"#092568",
-            10:"#071D52",
+          blue: {
+            1: "#E7ECF8",
+            2: "#C6D1EE",
+            3: "#98ADE0",
+            4: "#6887D2",
+            5: "#3B63C4",
+            6: "#1041B7",
+            7: "#0E379C",
+            8: "#0B2E82",
+            9: "#092568",
+            10: "#071D52",
           },
         },
         neutral:{
@@ -47,7 +47,7 @@ module.exports = {
         disabled: "#D0D5DD",
         border: "#D0D5DD",
         separator: "#EAECF0",
-        layoutBackground:"#F9FAFB",
+        layoutBackground: "#F9FAFB",
         //end text
         state: {
           primary: {
@@ -84,9 +84,9 @@ module.exports = {
           },
         },
       },
-      fontFamily:{
-        inter:"Inter"
-      }
+      fontFamily: {
+        inter: "Inter",
+      },
     },
   },
   plugins: [],
