@@ -1,51 +1,47 @@
-<script lang="ts">
-export default {
-  data() {
-    return {
-      isSidebarOpen: true,
-      user: {
-        name: "Marquez Pazeyo",
-        avatar: "https://i.pravatar.cc/150?u=uwang@example.com",
-        role: "Super Admin",
-      },
-      items: [
-        { text: "Dashboard", href: "/", icon: "image/home.svg" },
-        {
-          text: "Manajemen User",
-          icon: "image/users.svg",
-          submenu: [
-            { text: "Daftar Pengguna", href: "/users/list" },
-            { text: "Log Aktivitas Pengguna", href: "/users/logs" }
-          ],
-          show: false,
-        },
-        { text: "Manajemen Akses", href: "/access", icon: "image/settings.svg" },
-      ],
-    };
+<script setup lang="ts">
+const isSidebarOpen = ref(true)
+const user = reactive({
+  name: "Marquez Pazeyo",
+  avatar: "https://i.pravatar.cc/150?u=uwang@example.com",
+  role: "Super Admin",
+})
+const items = ref([
+  { text: "Dashboard", href: "/", icon: "image/home.svg" },
+  {
+    text: "Manajemen User",
+    icon: "image/users.svg",
+    submenu: [
+      { text: "Daftar Pengguna", href: "/users/list" },
+      { text: "Log Aktivitas Pengguna", href: "/users/logs" }
+    ],
+    show: false,
   },
-  methods: {
-    toggleSidebar() {
-      this.isSidebarOpen = !this.isSidebarOpen;
-    },
-    logout() {
-      // Implementasi logout
-    },
-    toggleDropdown(itemText: string) {
-      const item = this.items.find((i: any) => i.text === itemText);
-      if (item) {
-        item.show = !item.show;
-      }
-    },
-    isActive(item: any) {
-      return window.location.pathname === item.href;
-    },
-    handleItemClick(item: any) {
-      if (!item.submenu) return;
+  { text: "Manajemen Akses", href: "/access", icon: "image/settings.svg" },
+])
 
-      item.show = !item.show;
-    }
-  },
-};
+const toggleSidebar = () => {
+  isSidebarOpen.value = !isSidebarOpen.value
+}
+
+const logout = () => {
+  // Implementasi logout
+}
+
+const toggleDropdown = (itemText: string) => {
+  const item = items.value.find(i => i.text === itemText)
+  if (item) {
+    item.show = !item.show
+  }
+}
+
+const isActive = (item: any) => {
+  return window.location.pathname === item.href
+}
+
+const handleItemClick = (item: any) => {
+  if (!item.submenu) return
+  item.show = !item.show
+}
 </script>
 
 <template>
@@ -66,7 +62,7 @@ export default {
       <ul class="space-y-2">
         <li v-for="item in items" :key="item.text" class="group">
           <div
-            class="flex items-center justify-between px-3 py-2 cursor-pointer"
+            class="flex items-center justify-between px-3 py-2 cursor-pointer hover:bg-gray-200"
             :class="{ 'text-[#1041B7] font-semibold': isActive(item) }"
             @click="handleItemClick(item)">
             <a :href="item.href" class="flex items-center" v-if="!item.submenu">
@@ -80,7 +76,7 @@ export default {
               </div>
               <span v-if="item.submenu" class="transition-transform transform"
                 :class="{ 'rotate-180': item.show }">
-                <img src="image/chevron-down.svg" alt="icon">
+                <img src="image/chevron-down.svg" alt="icon-down">
               </span>
             </div>
           </div>
