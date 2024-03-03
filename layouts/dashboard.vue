@@ -5,7 +5,7 @@
 <template>
   <MainLayout>
     <template #sidebar>
-      <p>uni sidebar</p>
+      <Sidebar/>
     </template>
     <template #content>
       <slot/>

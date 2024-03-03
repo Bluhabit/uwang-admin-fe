@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const isSidebarOpen = ref(true)
+const isSidebarOpen = ref(false)
 const user = reactive({
   name: "Marquez Pazeyo",
   avatar: "https://i.pravatar.cc/150?u=uwang@example.com",
