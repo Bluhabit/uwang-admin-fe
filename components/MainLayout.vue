@@ -8,7 +8,7 @@ const sidebarContainerClasses = computed(() => ({
 
 const contentContainerClasses = computed(() => ({
   'flex-grow': isSidebarOpen.value,
-  'ml-64': isSidebarOpen.value,
+  // 'ml-64': isSidebarOpen.value,
   'ml-0': !isSidebarOpen.value,
 }));
 </script>

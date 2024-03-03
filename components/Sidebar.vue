@@ -53,8 +53,8 @@ const handleItemClick = (item: any) => {
         class="h-auto">
       <button @click="toggleSidebar" class="absolute"
         :class="{ 'right-4': isSidebarOpen, 'right-3 top-8': !isSidebarOpen }">
-        <span v-if="isSidebarOpen" class="font-bold text-lg"><img src="image/chevron-left.svg" alt=""></span>
-        <span v-else><img src="image/chevron-right.svg" alt=""></span>
+        <span v-if="isSidebarOpen" class="font-bold text-lg"><img src="image/chevron-left.svg" alt="row-left"></span>
+        <span v-else><img src="image/chevron-right.svg" alt="row-right"></span>
       </button>
     </div>
 

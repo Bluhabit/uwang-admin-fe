@@ -3,7 +3,14 @@
 </script>
 
 <template>
-  <p>sasa</p>
+  <MainLayout>
+    <template #sidebar>
+      <Sidebar/>
+    </template>
+    <template #content>
+      <HeaderPage/>
+    </template>
+  </MainLayout>
 </template>
 
 <style scoped>
