@@ -17,14 +17,14 @@ const dataStatistic = ref<Array<Statistic>>([
   {
     icon: "image/at-sign.svg",
     title: "Jumlah Daftar Hari",
-    amount: "2.234",
+    amount: userStatisticsStore.statistics.user_claim,
     statistic: 100,
     showStatistic: true,
   },
   {
     icon: "image/activity.svg",
     title: "Jumlah pengguna aktif",
-    amount: "5.122",
+    amount: userStatisticsStore.statistics.user_active,
     statistic: -40,
     showStatistic: true,
   },

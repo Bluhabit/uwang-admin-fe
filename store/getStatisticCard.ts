@@ -1,7 +1,7 @@
 export const useUserStatisticsStore = defineStore('getStatisticsCard', {
   state: () => ({
     statistics: {
-      active_user: '',
+      user_active: '',
       user_claim: '',
       total_user: '',
     },
