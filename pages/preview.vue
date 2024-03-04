@@ -1,22 +1,30 @@
 <script setup lang="ts">
+import { useUserStatisticsStore } from '~/store/getStatisticCard';
+
+const userStatisticsStore = useUserStatisticsStore();
+
+onMounted(() => {
+  userStatisticsStore.fetchStatistics();
+});
+
 const dataStatistic = ref<Array<Statistic>>([
   {
     icon: "image/user.svg",
     title: "Jumlah Pengguna",
-    amount: 12.332,
+    amount: userStatisticsStore.statistics.total_user,
     showStatistic: false,
   },
   {
     icon: "image/at-sign.svg",
     title: "Jumlah Daftar Hari",
-    amount: 2.234,
+    amount: "2.234",
     statistic: 100,
     showStatistic: true,
   },
   {
     icon: "image/activity.svg",
     title: "Jumlah pengguna aktif",
-    amount: 5.122,
+    amount: "5.122",
     statistic: -40,
     showStatistic: true,
   },

@@ -27,7 +27,6 @@ function isStatisticDown(statistic:number) {
   console.log("up",statistic);
   
   return false
-
 }
 </script>
 
