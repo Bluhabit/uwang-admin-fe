@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useStatistic } from '~/store/getStatisticCard';
 
-const userStatisticsStore = useUserStatisticsStore();
 
-onMounted(() => {
-  userStatisticsStore.fetchStatistics();
+const userStatisticsStore = useStatistic();
+
+onMounted(async () => { 
+  await userStatisticsStore.fetchStatistics();
 });
 
 const dataStatistic = ref<Array<Statistic>>([

@@ -1,7 +1,7 @@
 import type { StatisticData } from "~/type/statisticData";
 import type { StatisticResponse } from "~/type/statisticResponse";
 
-export const useUserStatisticsStore = defineStore('getStatisticsCard', {
+export const useStatistic = defineStore('statistic', {
   state: () => ({
     statistics: {
       active_user: 0,
