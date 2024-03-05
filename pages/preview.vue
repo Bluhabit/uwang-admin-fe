@@ -23,7 +23,7 @@ const dataStatistic = ref<Array<Statistic>>([
   {
     icon: "image/activity.svg",
     title: "Jumlah pengguna aktif",
-    amount: userStatisticsStore.statistics.user_active,
+    amount: userStatisticsStore.statistics.active_user,
     statistic: -40,
     showStatistic: true,
   },

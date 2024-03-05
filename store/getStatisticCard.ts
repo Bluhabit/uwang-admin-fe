@@ -1,15 +1,11 @@
-interface StatisticData {
-  user_active: string;
-  user_claim: string;
-  total_user: string;
-}
+import type { StatisticData } from "~/type/statisticData";
 
 export const useUserStatisticsStore = defineStore('getStatisticsCard', {
   state: () => ({
     statistics: {
-      user_active: '',
-      user_claim: '',
-      total_user: '',
+      active_user: 0,
+      user_claim: 0,
+      total_user: 0,
     } as StatisticData,
     isLoading: true,
   }),
@@ -17,10 +13,12 @@ export const useUserStatisticsStore = defineStore('getStatisticsCard', {
     async fetchStatistics() {
       this.isLoading = true;
       try {
-        const api = useApi();
-        const response = await api.get('https://api.bluhabit.id/account/v1/admin/get-statistic');
-        const responseData = response.data as StatisticData; 
-        this.statistics = responseData;
+        const { get } = useApi();
+        const response = await get<StatisticData>('https://api.bluhabit.id/uwang/dev/account/v1/admin/get-statistic');
+        if (response && response.data && typeof response.data === 'object') {
+          const { active_user, total_user, user_claim } = response.data;
+          this.statistics = { active_user, user_claim, total_user };
+        }
       } catch (error) {
         console.error('Error fetching statistics:', error);
       } finally {
