@@ -7,7 +7,7 @@ const props = defineProps({
     type:String,
   },
   amount:{
-    type:String,
+    type:Number,
   },
   statistic:{
     type:Number,
