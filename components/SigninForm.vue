@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useAuth } from '../store/useAuth'
 
 const passwordVisible = ref(false)
 const showModal = ref(false)

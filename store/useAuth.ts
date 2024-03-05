@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia';
 
+const {post} = useApi()
+
 export const useAuth = defineStore('auth', {
   state: () => ({
     token: '',
@@ -19,24 +21,28 @@ export const useAuth = defineStore('auth', {
     errorMessage: ''
   }),
   actions: {
-    async signIn(email : string, password : string) {
+    async signIn(email: string, password: string) {
       try {
-        const response = await fetch('https://api.bluhabit.id/auth/v1/admin/sign-in', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ email, password })
-        });
-        const data = await response.json();
-        if (response.ok) {
-          this.token = data.data.token;
-          this.user = data.data.user;
-          this.isLoggedIn = true;
-          console.log(data.message);
+        const response = await post<{ token: string; user: any }>(
+          'https://api.bluhabit.id/auth/v1/admin/sign-in',
+          {
+            email,
+            password,
+          }
+        );
+        if (response.isSuccessful) {
+          if (response.data) {
+            this.token = response.data.token;
+            this.user = response.data.user;
+            this.isLoggedIn = true;
+            console.log('Sign in successful');
+          } else {
+            this.errorMessage = 'No data received from the server';
+            console.error('Sign in failed: No data received');
+          }
         } else {
-          this.errorMessage = data.message;
-          console.error(data.message); 
+          this.errorMessage = response.message || 'Sign in failed';
+          console.error('Sign in failed');
         }
       } catch (error) {
         console.error('Error:', error);
