@@ -1,35 +1,22 @@
 import { defineStore } from 'pinia';
 
-const {post} = useApi()
+const { post } = useApi();
 
 export const useAuth = defineStore('auth', {
   state: () => ({
     token: '',
-    user: {
-      id: '',
-      full_name: '',
-      email: '',
-      dateOfBirth: '',
-      auth_provider: '',
-      status: '',
-      created_at: '',
-      updated_at: '',
-      roles: [],
-      profile: []
-    },
+    user: {} as UserResponse,
     isLoggedIn: false,
     errorMessage: ''
   }),
   actions: {
-    async signIn(email: string, password: string) {
-      try {
-        const response = await post<{ token: string; user: any }>(
-          'https://api.bluhabit.id/auth/v1/admin/sign-in',
-          {
-            email,
-            password,
-          }
-        );
+    signIn(email: string, password: string) {
+      const signInRequest = post<{ token: string; user: any }>('auth/v1/admin/sign-in', {
+        email,
+        password,
+      });
+
+      signInRequest.then((response) => {
         if (response.isSuccessful) {
           if (response.data) {
             this.token = response.data.token;
@@ -44,9 +31,11 @@ export const useAuth = defineStore('auth', {
           this.errorMessage = response.message || 'Sign in failed';
           console.error('Sign in failed');
         }
-      } catch (error) {
+      });
+
+      signInRequest.catch((error) => {
         console.error('Error:', error);
-      }
+      });
     }
   }
 });

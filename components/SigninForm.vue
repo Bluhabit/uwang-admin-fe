@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const passwordVisible = ref(false)
 const showModal = ref(false)
 const email = ref('')
@@ -20,8 +18,8 @@ const closeModal = () => {
     showModal.value = false
 }
 
-const handleSubmit = async () => {
-    await signIn(email.value, password.value)
+const handleSubmit = () => {
+    signIn(email.value, password.value)
 }
 </script>
 
