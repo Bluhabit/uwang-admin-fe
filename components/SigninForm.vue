@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useAuth } from '../store/useAuth'
+
 const passwordVisible = ref(false)
 const showModal = ref(false)
+const email = ref('')
+const password = ref('')
+
+const { signIn } = useAuth()
 
 const switchVisibility = () => {
     passwordVisible.value = !passwordVisible.value
@@ -15,6 +21,9 @@ const closeModal = () => {
     showModal.value = false
 }
 
+const handleSubmit = async () => {
+    await signIn(email.value, password.value)
+}
 </script>
 
 <template>
@@ -28,7 +37,8 @@ const closeModal = () => {
                 <br />
                 Friends of Uwang!👋🏻
             </h1>
-            <p class="text-white mb-16">You are a significant friend to someone who always helps keep money conducive to the
+            <p class="text-white mb-16">You are a significant friend to someone who always helps keep money conducive to
+                the
                 common goal of achieving
                 financial independence.</p>
             <span class="text-white text-center text-sm">
@@ -40,10 +50,10 @@ const closeModal = () => {
             <div class="max-w-sm rounded-2xl overflow-hidden shadow-2xl p-6 w-full">
                 <h1 class="font-bold text-xl mb-2">Login</h1>
                 <p class="text-sm text-gray-500 mb-4">Masuk ke akun anda</p>
-                <form class="w-full max-w-md">
+                <form class="w-full max-w-md" @submit.prevent="handleSubmit">
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700 mb-2 text-sm text-gray-500">Email</label>
-                        <input type="text" id="email" name="email"
+                        <input v-model="email" type="text" id="email" name="email"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm"
                             placeholder="Masukkan email Anda">
 
@@ -51,7 +61,8 @@ const closeModal = () => {
                     <div class="mb-6">
                         <label for="password" class="block text-gray-700 mb-2 text-sm text-gray-500">Password</label>
                         <div class="relative">
-                            <input :type="passwordVisible ? 'text' : 'password'" id="password" name="password"
+                            <input v-model="password" :type="passwordVisible ? 'text' : 'password'" id="password"
+                                name="password"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 pr-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm"
                                 placeholder="Masukkan password Anda">
                             <button @click="switchVisibility" type="button"
