@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useUserStatisticsStore } from '~/store/getStatisticCard';
 
 const userStatisticsStore = useUserStatisticsStore();
 
