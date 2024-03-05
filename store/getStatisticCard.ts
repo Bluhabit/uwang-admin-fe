@@ -1,4 +1,5 @@
 import type { StatisticData } from "~/type/statisticData";
+import type { StatisticResponse } from "~/type/statisticResponse";
 
 export const useUserStatisticsStore = defineStore('getStatisticsCard', {
   state: () => ({
@@ -14,10 +15,9 @@ export const useUserStatisticsStore = defineStore('getStatisticsCard', {
       this.isLoading = true;
       try {
         const { get } = useApi();
-        const response = await get<StatisticData>('https://api.bluhabit.id/uwang/dev/account/v1/admin/get-statistic');
-        if (response && response.data && typeof response.data === 'object') {
-          const { active_user, total_user, user_claim } = response.data;
-          this.statistics = { active_user, user_claim, total_user };
+        const { data } = await get<StatisticResponse>('https://api.bluhabit.id/uwang/dev/account/v1/admin/get-statistic');
+        if (data && data.data) {
+          this.statistics = data.data;
         }
       } catch (error) {
         console.error('Error fetching statistics:', error);
