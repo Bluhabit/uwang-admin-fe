@@ -32,8 +32,10 @@ function isStatisticDown(statistic:number) {
 </script>
 
 <template>
-  <div class="flex font-inter gap-4 p-6 items-center">
-    <div class="bg-state-primary-surface rounded-full p-4 w-16 h-16">
+  <div 
+  class="flex font-inter gap-4 p-6 items-center bg-white rounded-2xl shadow-sm ">
+    <div
+     class="bg-state-primary-surface rounded-full p-4 w-16 h-16 ">
       <img :src="icon" alt="" />
     </div>
     <div class="flex flex-col justify-center gap-2">
@@ -44,8 +46,8 @@ function isStatisticDown(statistic:number) {
           <img
             :src="
                isStatisticDown(statistic)
-                ? 'image/trending-down.svg'
-                : 'image/trending-up.svg'
+                ? '/image/trending-down.svg'
+                : '/image/trending-up.svg'
             "
             alt=""
           />

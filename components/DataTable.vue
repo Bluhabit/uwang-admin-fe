@@ -6,9 +6,11 @@ type Item = {
 const props = defineProps({
   items: {
     type: Array<Item>,
+    default: [],
   },
   headers: {
     type: Array<Header>,
+    default: [],
   },
 });
 </script>
@@ -36,7 +38,7 @@ const props = defineProps({
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in items">
+        <tr v-if="items.length > 0" v-for="(item, index) in items">
           <td v-for="header in headers" class="px-2 py-4 text-sm font-normal">
             <slot :name="header.value" :item="item">
               <span v-if="header.value === 'action'"> </span>
@@ -47,6 +49,11 @@ const props = defineProps({
                 {{ item[header.value] }}
               </span>
             </slot>
+          </td>
+        </tr>
+        <tr v-else>
+          <td :colspan="headers.length" class="text-center py-4">
+            Tidak ada data yang ditampilkan
           </td>
         </tr>
       </tbody>

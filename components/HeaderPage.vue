@@ -15,7 +15,7 @@ const formattedDate = computed(() => {
         <div class="flex items-center">
           <div class="flex items-center bg-white shadow-md rounded-full p-2 cursor-pointer mr-4">
             <a href="#">
-              <img src="image/bell.svg" alt="notifikasi">
+              <img src="/image/bell.svg" alt="notifikasi">
             </a>
           </div>
         </div>

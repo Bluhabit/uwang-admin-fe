@@ -6,17 +6,17 @@ const user = reactive({
   role: "Super Admin",
 })
 const items = ref([
-  { text: "Dashboard", href: "/", icon: "image/home.svg" },
+  { text: "Dashboard", href: "/", icon: "/image/home.svg" },
   {
     text: "Manajemen User",
-    icon: "image/users.svg",
+    icon: "/image/users.svg",
     submenu: [
       { text: "Daftar Pengguna", href: "/users/list" },
       { text: "Log Aktivitas Pengguna", href: "/users/logs" }
     ],
     show: false,
   },
-  { text: "Manajemen Akses", href: "/access", icon: "image/settings.svg" },
+  { text: "Manajemen Akses", href: "/access", icon: "/image/settings.svg" },
 ])
 
 const toggleSidebar = () => {
@@ -48,13 +48,13 @@ const handleItemClick = (item: any) => {
   <div :class="{ 'w-64': isSidebarOpen, 'w-12': !isSidebarOpen }"
     class="fixed inset-y-0 left-0 bg-white shadow-md h-screen overflow-y-auto flex flex-col transition-width duration-300">
     <div class="flex items-center justify-center py-4 mb-8 mt-4 px-4 relative">
-      <img :src="isSidebarOpen ? 'image/Logo-Uwang.svg' : 'image/Logo.svg'" alt="Logo"
+      <img :src="isSidebarOpen ? '/image/Logo-Uwang.svg' : '/image/Logo.svg'" alt="Logo"
         :class="{ 'w-30': isSidebarOpen, 'h-6 w-6': !isSidebarOpen, 'absolute': !isSidebarOpen, 'transition-all duration-300': true, }"
         class="h-auto">
       <button @click="toggleSidebar" class="absolute"
         :class="{ 'right-4': isSidebarOpen, 'right-3 top-8': !isSidebarOpen }">
-        <span v-if="isSidebarOpen" class="font-bold text-lg"><img src="image/chevron-left.svg" alt="row-left"></span>
-        <span v-else><img src="image/chevron-right.svg" alt="row-right"></span>
+        <span v-if="isSidebarOpen" class="font-bold text-lg"><img src="/image/chevron-left.svg" alt="row-left"></span>
+        <span v-else><img src="/image/chevron-right.svg" alt="row-right"></span>
       </button>
     </div>
 
@@ -76,7 +76,7 @@ const handleItemClick = (item: any) => {
               </div>
               <span v-if="item.submenu" class="transition-transform transform"
                 :class="{ 'rotate-180': item.show }">
-                <img src="image/chevron-down.svg" alt="icon-down">
+                <img src="/image/chevron-down.svg" alt="icon-down">
               </span>
             </div>
           </div>
@@ -99,7 +99,7 @@ const handleItemClick = (item: any) => {
         </div>
       </div>
       <button @click="logout" :class="{ 'ml-3': isSidebarOpen, 'ml-0': !isSidebarOpen }">
-        <img src="image/log-out.svg" class="h-6 w-6" alt="Logout Icon">
+        <img src="/image/log-out.svg" class="h-6 w-6" alt="Logout Icon">
       </button>
     </div>
   </div>
