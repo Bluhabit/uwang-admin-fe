@@ -53,7 +53,9 @@ const props = defineProps({
         </tr>
         <tr v-else>
           <td :colspan="headers.length" class="text-center py-4">
-            Tidak ada data yang ditampilkan
+            <div class="w-full flex justify-center">
+              <img src="/image/empty.svg" alt="" />
+            </div>
           </td>
         </tr>
       </tbody>
