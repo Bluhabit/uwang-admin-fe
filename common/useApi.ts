@@ -3,7 +3,7 @@ export type Param = {
     value: string;
 };
 
-interface UseApi {
+interface Api {
     get<T>(url: string, ...query: Param[]): Promise<Response<T>>
 
     post<T>(
@@ -21,7 +21,7 @@ interface UseApi {
     remove<T>(url: string, ...query: Param[]): Promise<Response<T>>
 }
 
-export function useApi(): UseApi {
+export function useApi(): Api {
     /**
      * fetch url with method GET
      * @param url given url for fetching
@@ -123,9 +123,25 @@ export function useApi(): UseApi {
     ): Promise<Response<T>> {
         return fetch(
             urlBuilder(url, params),
-            requestOptionBuilder(body, method) as RequestInit,
+            requestOptionBuilder(body, method, url.startsWith("/login")) as RequestInit,
         )
             .then((res) => res.json())
+            .then(res => {
+                const code = res.status_code
+                if (code >= 200 && code <= 209) {
+                    return {
+                        isSuccessful: true,
+                        data: res.data,
+                        message: res.message
+                    }
+                }
+
+                return {
+                    isSuccessful: false,
+                    data: res.data,
+                    message: res.message
+                }
+            })
             .catch((e) => {
                 return {
                     isSuccessful: false,
@@ -165,6 +181,7 @@ function urlBuilder(
 function requestOptionBuilder(
     body: { [key: string]: number | boolean | string | object } | FormData | null,
     method: "POST" | "PUT" | "GET" | "DELETE",
+    skipAuth: boolean,
 ): { [key: string]: number | boolean | string | object | FormData | null } {
     const currentToken = "";
     const opt: { [key: string]: number | boolean | string | object | FormData | null } = {}
@@ -200,7 +217,9 @@ function requestOptionBuilder(
     };
 
     const header: { [key: string]: string } = {}
-    header["Authorization"] = `Bearer ${currentToken}`;
+    if (!skipAuth) {
+        header["Authorization"] = `Bearer ${currentToken}`;
+    }
     header["Content-Type"] = contentType();
     opt["method"] = method
     const requestBody = bodyBuilder()
@@ -225,8 +244,6 @@ async function Tes() {
     const formData = new FormData();
     formData.append("username", "trian")
 
-
-
     /get_list?query1=tes
     const result_get = await get<User>("/get list", {name: "query1", value: "tes"})
 
@@ -239,6 +256,7 @@ async function Tes() {
     const result_post1 = await remove<User>("/login")
     const result_post2 = await remove<User>("/login")
 
-}*/
 
+}
 
+*/
