@@ -1,6 +1,8 @@
-export const useAuth = defineStore("auth", {
+export const useAuth = defineStore<string,{
+    tes:string
+}>("auth", {
     state:()=>({
-
+        tes:''
     }),
     actions:{
         async singIn(){
