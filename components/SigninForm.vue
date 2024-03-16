@@ -6,19 +6,19 @@ const password = ref('')
 
 const { signIn } = useAuth()
 
-const switchVisibility = () => {
+function switchVisibility() {
     passwordVisible.value = !passwordVisible.value
 }
 
-const openModal = () => {
+function openModal() {
     showModal.value = true
 }
 
-const closeModal = () => {
+function closeModal() {
     showModal.value = false
 }
 
-const handleSubmit = () => {
+function handleSubmit() {
     signIn(email.value, password.value)
 }
 </script>

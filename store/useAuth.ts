@@ -2,40 +2,39 @@ import { defineStore } from 'pinia';
 
 const { post } = useApi();
 
-export const useAuth = defineStore('auth', {
+export const useAuth = defineStore<string, { token: string, user: UserResponse, isLoggedIn: boolean, errorMessage: string }, {}, {}>('auth', {
   state: () => ({
     token: '',
-    user: {} as UserResponse,
+    user: {},
     isLoggedIn: false,
     errorMessage: ''
   }),
   actions: {
-    signIn(email: string, password: string) {
+    async signIn(email: string, password: string) {
+      if (!email || !password) {
+        this.errorMessage = "Email and password are required.";
+        return;
+      }
+  
       const signInRequest = post<{ token: string; user: any }>('auth/v1/admin/sign-in', {
         email,
         password,
       });
+  
+      const response = await signInRequest;
 
-      signInRequest.then((response) => {
-        if (response.isSuccessful) {
-          if (response.data) {
-            this.token = response.data.token;
-            this.user = response.data.user;
-            this.isLoggedIn = true;
-            console.log('Sign in successful');
-          } else {
-            this.errorMessage = 'No data received from the server';
-            console.error('Sign in failed: No data received');
-          }
-        } else {
-          this.errorMessage = response.message || 'Sign in failed';
-          console.error('Sign in failed');
-        }
-      });
-
-      signInRequest.catch((error) => {
-        console.error('Error:', error);
-      });
+      if (!response.isSuccessful) {
+        this.errorMessage = response.message || 'Sign in failed';
+        return;
+      }
+      
+      if (!response.data) {
+        this.errorMessage = 'No data received from the server';
+        return;
+      }
+      this.token = response.data.token;
+      this.user = response.data.user;
+      this.isLoggedIn = true;
     }
   }
 });
