@@ -6,11 +6,6 @@ const sidebarContainerClasses = computed(() => ({
   'w-12': !isSidebarOpen.value,
 }));
 
-// const contentContainerClasses = computed(() => ({
-//   'w-full': isSidebarOpen.value,
-//   // 'ml-64': isSidebarOpen.value,
-//   'w-full': !isSidebarOpen.value,
-// }));
 function toogleSidebar() {
     isSidebarOpen.value = !isSidebarOpen.value
 }
