@@ -65,10 +65,12 @@ onMounted(() => {
       <Sidebar />
     </template>
     <template #content>
-      <div class="flex flex-col gap-2">
+      <div class="flex w-full flex-col gap-2">
         <HeaderPage />
-        <StatisticDashboard :statistic="dataStatistic" />
-        <h1 class="text-2xl font-bold font-inter">List 7 peengguna teratas</h1>
+        <div class="px-6">
+          <StatisticDashboard :statistic="dataStatistic" />
+        </div>
+        <h1 class="px-6 text-2xl font-bold font-inter">List 7 peengguna teratas</h1>
         <DataTable :items="user.topUser" :headers="headers">
           <template #actionHeader>
             <div class="w-full flex justify-between">

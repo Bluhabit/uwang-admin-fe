@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const isSidebarOpen = ref(false)
-const user = reactive({
+const user = {
   name: "Marquez Pazeyo",
   avatar: "https://i.pravatar.cc/150?u=uwang@example.com",
   role: "Super Admin",
-})
-const items = ref([
+}
+const items = [
   { text: "Dashboard", href: "/", icon: "/image/home.svg" },
   {
     text: "Manajemen User",
@@ -17,28 +17,28 @@ const items = ref([
     show: false,
   },
   { text: "Manajemen Akses", href: "/access", icon: "/image/settings.svg" },
-])
+]
 
-const toggleSidebar = () => {
+function toggleSidebar() {
   isSidebarOpen.value = !isSidebarOpen.value
 }
 
-const logout = () => {
+function logout() {
   // Implementasi logout
 }
 
-const toggleDropdown = (itemText: string) => {
-  const item = items.value.find(i => i.text === itemText)
+function toggleDropdown(itemText: string){
+  const item = items.find(i => i.text === itemText)
   if (item) {
     item.show = !item.show
   }
 }
 
-const isActive = (item: any) => {
+function isActive(item: any){
   return window.location.pathname === item.href
 }
 
-const handleItemClick = (item: any) => {
+function handleItemClick(item: any){
   if (!item.submenu) return
   item.show = !item.show
 }

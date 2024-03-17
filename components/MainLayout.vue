@@ -19,8 +19,8 @@ const contentContainerClasses = computed(() => ({
       <slot name="sidebar"></slot>
     </div>
 
-    <div class="flex-1">
-      <div :class="contentContainerClasses">
+    <div :class="contentContainerClasses">
+      <div >
         <main class="overflow-y-auto">
           <slot name="content"></slot>
         </main>
