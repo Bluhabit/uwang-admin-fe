@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
@@ -14,6 +13,6 @@
                         alt=""></button>
             </div>
         </div>
-        <TableRole />
+        <DataTable />
     </div>
 </template>
