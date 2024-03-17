@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useStatistic } from '~/store/getStatisticCard';
+import { useStatistic } from '~/store/useStatistic';
 
 
 const userStatisticsStore = useStatistic();
@@ -12,20 +12,20 @@ const dataStatistic = ref<Array<Statistic>>([
   {
     icon: "image/user.svg",
     title: "Jumlah Pengguna",
-    amount: userStatisticsStore.statistics.total_user,
+    amount: userStatisticsStore.statistics.totalUser,
     showStatistic: false,
   },
   {
     icon: "image/at-sign.svg",
     title: "Jumlah Daftar Hari",
-    amount: userStatisticsStore.statistics.user_claim,
+    amount: userStatisticsStore.statistics.userClaim,
     statistic: 100,
     showStatistic: true,
   },
   {
     icon: "image/activity.svg",
     title: "Jumlah pengguna aktif",
-    amount: userStatisticsStore.statistics.active_user,
+    amount: userStatisticsStore.statistics.activeUser,
     statistic: -40,
     showStatistic: true,
   },
