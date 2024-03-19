@@ -7,13 +7,13 @@ const users = ['triandamai', 'fahmiazzuhri', 'fikrimaulana'];
 
 let userInput = '';
 
-const handleClose = () => {
+function handleClose() {
     emit('close');
 };
-const filterUsers = () => {
+function filterUsers() {
     return users.filter(user => user.toLowerCase().includes(userInput.toLowerCase()));
 };
-const selectUser = (user: string) => {
+function selectUser(user: string) {
     userInput = user;
 };
 </script>
