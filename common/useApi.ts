@@ -170,7 +170,7 @@ function urlBuilder(
     url: string,
     query: Array<{ name: string; value: number | string | boolean }> = [],
 ): URL {
-    const urlBuilder = new URL(url, "http://localhost:5137/");
+    const urlBuilder = new URL(url, "https://api.bluhabit.id/");
     query.forEach((query) =>
         urlBuilder.searchParams.append(query.name, `${query.value}`),
     );

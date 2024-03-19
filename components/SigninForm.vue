@@ -56,8 +56,8 @@ const closeModal = () => {
                                 placeholder="Masukkan password Anda">
                             <button @click="switchVisibility" type="button"
                                 class="absolute inset-y-0 right-0 flex items-center px-2">
-                                <img v-if="passwordVisible" src="image/eye-on.svg" alt="">
-                                <img v-else src="image/eye-off.svg" alt="">
+                                <img v-if="passwordVisible" src="/image/eye-on.svg" alt="">
+                                <img v-else src="/image/eye-off.svg" alt="">
                             </button>
                         </div>
 
