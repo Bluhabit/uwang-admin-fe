@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SuccesPW from '~/components/SuccesPw.vue';
+
 const dataStatistic = ref<Array<Statistic>>([
   {
     icon: "image/user.svg",
@@ -93,5 +95,6 @@ const items = [
         <p class="bg-state-success-main text-white rounded-full px-2 py-1 w-fit">{{ item.status_user }}</p>
       </template>
     </DataTable>
+    <SuccesPW/>
   </div>
 </template>
