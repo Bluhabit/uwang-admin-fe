@@ -16,7 +16,14 @@ function filterUsers() {
 function selectUser(user: string) {
     userInput = user;
 };
+
+const roles = [
+    { value: 'admin', label: 'Admin' },
+    { value: 'moderator', label: 'Moderator' },
+    { value: 'analyst', label: 'Analyst' }
+];
 </script>
+
 
 <template>
     <div class="fixed inset-0 overflow-y-auto flex items-center justify-center z-50">
@@ -47,9 +54,8 @@ function selectUser(user: string) {
                         <p class="text-md mb-1">Pilih Role</p>
                         <select class="border border-gray-500 p-2 rounded-xl text-gray-500">
                             <option disabled selected>Pilih role yang diinginkan</option>
-                            <option value="admin">Admin</option>
-                            <option value="superadmin">Super Admin</option>
-                            <option value="analyst">Analyst</option>
+                            <option v-for="role in roles" :value="role.value" :key="role.value">{{ role.label }}
+                            </option>
                         </select>
                         <div class="flex flex-row items-center justify-center mt-5">
                             <button
