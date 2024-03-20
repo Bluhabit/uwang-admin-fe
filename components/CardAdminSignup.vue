@@ -8,7 +8,7 @@ function switchVisibility() {
     passwordVisible.value = !passwordVisible.value
 }
 
-const isPasswordValid = () => {
+function isPasswordValid() {
     return password.value !== '' && confirmPassword.value !== ''
 }
 </script>
