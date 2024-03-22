@@ -1,18 +1,3 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-const passwordVisible = ref(false)
-const password = ref('')
-const confirmPassword = ref('')
-
-function switchVisibility() {
-    passwordVisible.value = !passwordVisible.value
-}
-
-function isPasswordValid() {
-    return password.value !== '' && confirmPassword.value !== ''
-}
-</script>
-
 <template>
     <div class="absolute inset-0 flex items-center justify-center z-20">
         <div class="max-w-sm rounded-2xl overflow-hidden shadow-2xl p-6 max-w-full bg-white">
