@@ -1,4 +1,9 @@
 <script setup lang="ts">
+const router = useRouter()
+
+function redirectToLogin() {
+  router.push('/login')
+}
 
 </script>
 
@@ -11,7 +16,7 @@
             <h2 class="text-center text-2xl font-bold">Password berhasil dibuat</h2>
             <p class="text-center mt-4 text-neutral-gray-7">Silahkan login menggunakan password yang telah dibuat.</p>
             <button
-                class="mt-8 w-full px-4 py-3 text-sm font-medium text-white bg-state-primary-main rounded-xl shadow-sm hover:bg-primary-700">Login</button>
+            @click="redirectToLogin" class="mt-8 w-full px-4 py-3 text-sm font-medium text-white bg-state-primary-main rounded-xl shadow-sm hover:bg-primary-700">Login</button>
         </div>
     </div>
 </template>
