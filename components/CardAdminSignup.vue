@@ -36,10 +36,34 @@
                 <div class="flex items-center justify-between">
                     <button
                         :class="{ 'bg-state-primary-main hover:bg-state-primary-hover text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full': isPasswordValid(), 'bg-gray-300 hover:bg-gray-300 text-gray-400 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full': !isPasswordValid() }"
-                        type="submit" :disabled="!isPasswordValid()">Buat Password
+                        type="submit" :disabled="!isPasswordValid()" @click="emitPasswordValidEvent()">Buat Password
                     </button>
                 </div>
             </form>
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+import { ref, defineEmits } from 'vue'
+
+const emits = defineEmits(['passwordValid'])
+
+const passwordVisible = ref(false)
+const password = ref('')
+const confirmPassword = ref('')
+
+function switchVisibility() {
+    passwordVisible.value = !passwordVisible.value
+}
+
+function isPasswordValid() {
+    return password.value !== '' && confirmPassword.value !== ''
+}
+
+function emitPasswordValidEvent() {
+    if (isPasswordValid()) {
+        emits('passwordValid')
+    }
+}
+</script>
