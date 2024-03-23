@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import { defineEmits } from 'vue';
+import { defineProps } from 'vue';
 
-const emit = defineEmits(['close']);
-
-const users = ['triandamai', 'fahmiazzuhri', 'fikrimaulana'];
+const props = defineProps<{
+    users: string[];
+    onClose: () => void;
+}>()
 
 let userInput = '';
 
 function handleClose() {
-    emit('close');
+    props.onClose();
 };
 function filterUsers() {
-    return users.filter(user => user.toLowerCase().includes(userInput.toLowerCase()));
+    return props.users.filter(user => user.toLowerCase().includes(userInput.toLowerCase()));
 };
 function selectUser(user: string) {
     userInput = user;
@@ -23,7 +24,6 @@ const roles = [
     { value: 'analyst', label: 'Analyst' }
 ];
 </script>
-
 
 <template>
     <div class="fixed inset-0 overflow-y-auto flex items-center justify-center z-50">

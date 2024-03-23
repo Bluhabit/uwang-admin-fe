@@ -1,5 +1,21 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useApi } from '../../common/useApi';
 
+const api = useApi();
+const users = ref<string[]>([]);
+
+
+async function fetchData() {
+    const response = await api.get<UserCredentialResponse[]>('/uwang/dev/account/v1/admin/get-list-user');
+    if (response.isSuccessful && response.data !== null) {
+        users.value = response.data.map(user => user.username);
+    } else {
+        console.error('Failed to fetch user data');
+    }
+}
+
+fetchData();
 </script>
 
 <template>
