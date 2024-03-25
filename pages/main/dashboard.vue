@@ -1,23 +1,30 @@
 <script setup lang="ts">
+
+const userStatisticsStore = useStatistic();
+
+onMounted(async () => { 
+  await userStatisticsStore.fetchStatistics();
+});
+
 const dataStatistic = ref<Array<Statistic>>([
   {
     icon: "/image/user.svg",
     title: "Jumlah Pengguna",
-    amount: 12.332,
+    amount: userStatisticsStore.statistics.totalUser,
     showStatistic: false,
   },
   {
     icon: "/image/at-sign.svg",
     title: "Jumlah Daftar Hari",
-    amount: 2.234,
-    statistic: 100,
+    amount: userStatisticsStore.statistics.userClaim,
+    statistic: userStatisticsStore.statistics.userClaim,
     showStatistic: true,
   },
   {
     icon: "/image/activity.svg",
     title: "Jumlah pengguna aktif",
-    amount: 5.122,
-    statistic: -40,
+    amount: userStatisticsStore.statistics.activeUser,
+    statistic: userStatisticsStore.statistics.activeUser,
     showStatistic: true,
   },
 ]);
