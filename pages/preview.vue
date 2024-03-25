@@ -1,11 +1,5 @@
 <script setup lang="ts">
 
-const userStatisticsStore = useStatistic();
-
-onMounted(async () => { 
-  await userStatisticsStore.fetchStatistics();
-});
-
 const dataStatistic = ref<Array<Statistic>>([
   {
     icon: "image/user.svg",
