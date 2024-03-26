@@ -20,10 +20,6 @@ const props = defineProps({
       <slot name="actionHeader"></slot>
     </div>
     <table
-      style="
-        -moz-border-top-left-radius: 0.75rem /* 12px */;
-        -moz-border-top-right-radius: 0.75rem /* 12px */;
-      "
       class="rounded-t-xl w-full outline text-left my-5 outline-separator"
     >
       <thead class="border-b">
@@ -38,7 +34,7 @@ const props = defineProps({
         </tr>
       </thead>
       <tbody>
-        <tr v-if="items.length > 0" v-for="(item, index) in items">
+        <tr v-if="items.length > 10" v-for="(item, index) in items">
           <td v-for="header in headers" class="px-2 py-4 text-sm font-normal">
             <slot :name="header.value" :item="item">
               <span v-if="header.value === 'action'"> </span>
