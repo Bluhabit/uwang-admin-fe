@@ -1,13 +1,14 @@
 
-
-export const useListUser = defineStore<string, UserWithPaginationState, {}, {fetchStatistics: () => Promise<void>;}>('useListUser', {
+export const useListUser = defineStore<string, UserWithPaginationState, {}, {
+  fetchUserWithPagination: () => Promise<void>;
+}>('listUser', {
   state: () => ({
     result:[],
     isLoading: true,
   }),
 
   actions: {
-    async fetchStatistics() {
+    async fetchUserWithPagination() {
       this.isLoading = true;
       const { get } = useApi();
       const result = await get<UserCredentialResponse>('uwang/dev/account/v1/admin/get-list-user');

@@ -17,7 +17,7 @@ function toogleSidebar() {
       <Sidebar @toggle-sidebar="toogleSidebar" :is-sidebar-open="isSidebarOpen" />
     </div>
 
-    <div class="" >
+    <div class="flex-grow" >
         <main class="">
           <slot name="content"></slot>
         </main>
