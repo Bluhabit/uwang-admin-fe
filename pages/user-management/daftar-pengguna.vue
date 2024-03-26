@@ -1,10 +1,9 @@
 <script setup>
 const listUserStore = useListUser();
 
-onMounted(async () => { 
+onMounted(async () => {
   await listUserStore.fetchUserWithPagination();
-  console.log("datauser",listUserStore.result);
-
+  console.log("datauser", listUserStore.result);
 });
 const headers = [
   {
@@ -39,15 +38,19 @@ const headers = [
     name: "Status",
     value: "status",
   },
-
 ];
-const dataUser = listUserStore.data
+
+
+const dataUser = listUserStore.data;
 </script>
 <template>
- <MainLayout>
+  <MainLayout>
     <template #content>
       <div class="flex w-full flex-col gap-2">
-        <HeaderPage header-text="Daftar Pengguna" subtitle-text="Lihat semua daftar pengguna terupdate" />
+        <HeaderPage
+          header-text="Daftar Pengguna"
+          subtitle-text="Lihat semua daftar pengguna terupdate"
+        />
         <DataTable :items="dataUser" :headers="headers">
           <template #actionHeader>
             <div class="w-full flex justify-between">
@@ -73,11 +76,18 @@ const dataUser = listUserStore.data
               </ButtonTable>
             </div>
           </template>
-          <template #status_user="{ dataUser }">
+          <template #status="{ item }">
             <p
               class="bg-state-success-main text-white rounded-full px-2 py-1 w-fit"
             >
-              {{ dataUser.status }}
+              {{ item.status }}
+            </p>
+          </template>
+          <template #id="{ item }">
+            <p
+              class="text-state-primary-main underline"
+            >
+              {{ item.id }}
             </p>
           </template>
         </DataTable>
