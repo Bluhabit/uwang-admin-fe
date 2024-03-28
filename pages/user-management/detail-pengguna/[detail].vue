@@ -1,6 +1,6 @@
 <script setup>
 const route = useRoute();
-const id = route.params.detail;
+const uuid = route.params.detail;
 const dataDummy = {
   id: "1551b951-5506-48cf-bb76-4804563e6287",
   email: "azkigm03@gmail.com",

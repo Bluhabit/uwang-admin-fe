@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
 
-const birthDate = new Date("1990-01-01");
-const registerDate = new Date("2023-02-23");
-const followerCount = ref(1000);
-const postCount = ref(500);
-const country = "Indonesia";
-const lastActive = "2024-02-23";
-
-const userName = "Trian Damai";
-const userEmail = "trian@gmail.com";
-
+const props = defineProps({
+  data: {
+    type: Array<UserCredentialResponse>,
+    default: [],
+  },
+});
 function formatDate(date: Date): string {
   return date.toLocaleDateString("id-ID");
 }
@@ -24,10 +19,11 @@ function formatDate(date: Date): string {
       </div>
       <div class="col ml-3">
         <h1 class="font-bold text-xl mb-1">
-          {{ userName }} <span class="text-gray-500">#21212</span>
+          {{ data[0].full_name }}
+          <span class="text-gray-500">{{ data[0].id }}</span>
         </h1>
-        <p class="text-sm text-gray-500 mb-1">@{{ userName.toLowerCase() }}</p>
-        <p class="text-sm text-gray-500">{{ userEmail }}</p>
+        <p class="text-sm text-gray-500 mb-1">@{{ data[0].username.toLowerCase() }}</p>
+        <p class="text-sm text-gray-500">{{  data[0].email }}</p>
       </div>
     </div>
     <div class="flex ml-[auto]">
@@ -36,8 +32,8 @@ function formatDate(date: Date): string {
         <p class="text-gray-500">Tanggal daftar :</p>
       </div>
       <div class="col ml-3">
-        <p class="mt-5">{{ formatDate(birthDate) }}</p>
-        <p>{{ formatDate(registerDate) }}</p>
+        <p class="mt-5">{{ formatDate( data[0].dateOfBirth) }}</p>
+        <p>{{ formatDate( data[0].dateOfBirth) }}</p>
       </div>
     </div>
     <div class="flex ml-5">
@@ -46,8 +42,8 @@ function formatDate(date: Date): string {
         <p class="text-gray-500">Postingan :</p>
       </div>
       <div class="col ml-3">
-        <p class="mt-5">{{ followerCount }}</p>
-        <p>{{ postCount }}</p>
+        <p class="mt-5">{{  data[0].profile }}</p>
+        <p>{{ data[0].profile }}</p>
       </div>
     </div>
     <div class="flex ml-5">
@@ -56,14 +52,14 @@ function formatDate(date: Date): string {
         <p class="text-gray-500">Terakhir Aktif :</p>
       </div>
       <div class="col ml-3">
-        <p class="mt-5">{{ country }}</p>
-        <p>{{ lastActive }}</p>
+        <p class="mt-5">{{ data[0].profile }}</p>
+        <p>{{ data[0].profile }}</p>
       </div>
     </div>
     <button
       class="bg-green-500 text-white font-bold rounded w-16 h-8 mt-7 ml-5"
     >
-      Aktif
+      {{data[0].status}}
     </button>
     <button class="border font-medium rounded w-24 h-10 py-2 mt-6 ml-5">
       Ubah status
