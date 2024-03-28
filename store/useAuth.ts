@@ -1,40 +1,21 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
-const { post } = useApi();
-
-export const useAuth = defineStore<string, { token: string, user: UserResponse, isLoggedIn: boolean, errorMessage: string }, {}, {}>('auth', {
+export const useAuth = defineStore('auth', {
   state: () => ({
-    token: '',
-    user: {},
-    isLoggedIn: false,
-    errorMessage: ''
+    isAuthenticated: false,
+    user: null,
+    error: null,
   }),
   actions: {
     async signIn(email: string, password: string) {
-      if (!email || !password) {
-        this.errorMessage = "Email and password are required.";
-        return;
-      }
-  
-      const signInRequest = post<{ token: string; user: any }>('auth/v1/admin/sign-in', {
-        email,
-        password,
-      });
-  
-      const response = await signInRequest;
+      const response = await api.post<UserCredentialResponse>("/uwang/dev/auth/v1/sign-in-admin", { email, password })
 
-      if (!response.isSuccessful) {
-        this.errorMessage = response.message || 'Sign in failed';
-        return;
+      if (response.isSuccessful) {
+        this.isAuthenticated = true
+        this.user = response.data
+      } else {
+        this.error = response.message
       }
-      
-      if (!response.data) {
-        this.errorMessage = 'No data received from the server';
-        return;
-      }
-      this.token = response.data.token;
-      this.user = response.data.user;
-      this.isLoggedIn = true;
-    }
-  }
-});
+    },
+  },
+})
