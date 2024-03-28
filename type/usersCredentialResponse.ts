@@ -1,11 +1,14 @@
 export type UserCredentialResponse = 
   {
-    id: '',
-    full_name: '',
-    email: '',
-    dateOfBirth: '',
-    auth_provider: '',
-    status: '',
-    created_at: '',
-    updated_at: '',
+    id: "",
+    email: "",
+    full_name: "",
+    username: "",
+    dateOfBirth: "",
+    authProvider: "",
+    status: "",
+    createdAt: "",
+    updatedAt: "",
+    deleted: false,
+    user_profile: null
   }
