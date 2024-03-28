@@ -3,7 +3,6 @@ const listUserStore = useListUser();
 
 onMounted(async () => {
   await listUserStore.fetchUserWithPagination();
-  console.log("datauser", listUserStore.result);
 });
 const headers = [
   {
@@ -41,7 +40,6 @@ const headers = [
 ];
 
 
-const dataUser = listUserStore.data;
 </script>
 <template>
   <MainLayout>
@@ -51,7 +49,7 @@ const dataUser = listUserStore.data;
           header-text="Daftar Pengguna"
           subtitle-text="Lihat semua daftar pengguna terupdate"
         />
-        <DataTable :items="dataUser" :headers="headers">
+        <DataTable :items="listUserStore.data" :headers="headers">
           <template #actionHeader>
             <div class="w-full flex justify-between">
               <div class="flex gap-2">
