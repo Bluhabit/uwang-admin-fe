@@ -183,7 +183,7 @@ function requestOptionBuilder(
     method: "POST" | "PUT" | "GET" | "DELETE",
     skipAuth: boolean,
 ): { [key: string]: number | boolean | string | object | FormData | null } {
-    const currentToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJibHVoYWJpdC5pZCIsInN1YiI6IjE1NTFiOTUxLTU1MDYtNDhjZi1iYjc2LTQ4MDQ1NjNlNjI4NyIsImlhdCI6MTcxMTM4OTQwOCwiZXhwIjoxNzExMzkzMDA4fQ.Ypu2dhq7CVYSGMQ9rJEKp1aHIMFDgSv4lLnrVIn3VcU";
+    const currentToken = "";
     const opt: { [key: string]: number | boolean | string | object | FormData | null } = {}
 
     const bodyBuilder = (): FormData | string | null => {
