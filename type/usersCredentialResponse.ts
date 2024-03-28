@@ -1,3 +1,5 @@
+import type { ProfileResponse } from "./profileResponse";
+
 export type UserCredentialResponse = 
   {
     id: string,
