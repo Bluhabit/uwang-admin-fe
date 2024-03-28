@@ -1,14 +1,14 @@
 export type UserCredentialResponse = 
   {
-    id: String,
-    email:String,
-    full_name:String,
-    username: String,
+    id: string,
+    email:string,
+    full_name:string,
+    username: string,
     dateOfBirth:Date,
-    authProvider:String,
-    status:String,
+    authProvider:string,
+    status:string,
     createdAt:Date,
     updatedAt:Date,
-    deleted: Boolean,
-    user_profile: ProfileResponse
+    deleted: boolean,
+    user_profile: Array<ProfileResponse>
   }

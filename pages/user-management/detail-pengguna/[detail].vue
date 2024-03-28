@@ -20,7 +20,7 @@ const dataDummy = {
       />
       <div class="p-6">
         <h1 class="font-semibold text-2xl">Infromasi Pengguna</h1>
-        <UserInformation />
+        <UserInformation :data="dataDummy" />
       </div>
       <DataTable :items="dataDummy" :headers="headers">
         <template #actionHeader>
