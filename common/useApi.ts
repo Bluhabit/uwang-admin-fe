@@ -218,9 +218,8 @@ function requestOptionBuilder(
 
     const header: { [key: string]: string } = {}
     if (!skipAuth) {
-        header["Authorization"] = `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJibHVoYWJpdC5pZCIsInN1YiI6IjE1NTFiOTUxLTU1MDYtNDhjZi1iYjc2LTQ4MDQ1NjNlNjI4NyIsImlhdCI6MTcxMTM4OTQwOCwiZXhwIjoxNzExMzkzMDA4fQ.Ypu2dhq7CVYSGMQ9rJEKp1aHIMFDgSv4lLnrVIn3VcU`;
+        header["Authorization"] = `Bearer ${currentToken}`;
     }
-    header["Authorization"] = `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJibHVoYWJpdC5pZCIsInN1YiI6IjE1NTFiOTUxLTU1MDYtNDhjZi1iYjc2LTQ4MDQ1NjNlNjI4NyIsImlhdCI6MTcxMTM4OTQwOCwiZXhwIjoxNzExMzkzMDA4fQ.Ypu2dhq7CVYSGMQ9rJEKp1aHIMFDgSv4lLnrVIn3VcU`;
     header["Content-Type"] = contentType();
     opt["method"] = method
     const requestBody = bodyBuilder()
