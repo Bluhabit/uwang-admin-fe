@@ -1,7 +1,7 @@
 <script setup>
+
 const route = useRoute();
 const listUserStore = useListUser();
-
 
 onMounted(async () => {
   await listUserStore.fetchUserWithPagination();
@@ -102,7 +102,7 @@ const headers = [
             @click="goToDetailUser(item.id)"
             class="text-state-primary-main underline cursor-pointer"
           >
-            {{ item.id }}
+            {{ shortenId(item.id) }}
           </a>
         </template>
       </DataTable>

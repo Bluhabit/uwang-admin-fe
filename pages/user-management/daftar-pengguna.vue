@@ -122,7 +122,7 @@ const dataUser = listUserStore.data;
                 @click="goToDetailUser(item.id)"
                 class="text-state-primary-main underline cursor-pointer"
               >
-                {{ item.id }}
+                {{ shortenId(item.id) }}
               </a>
             </template>
           </DataTable>

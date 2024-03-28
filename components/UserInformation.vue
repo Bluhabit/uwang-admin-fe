@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { shortenId } from '~/common/shortenId';
+
 interface Props {
   id: string;
   email: string;
@@ -49,6 +51,7 @@ function formatDate(dateString: string): string {
 
   return formattedDate;
 }
+
 </script>
 
 <template>
@@ -60,7 +63,7 @@ function formatDate(dateString: string): string {
       <div class="col ml-3">
         <h1 class="font-semibold text-lg text-main mb-1">
           {{ props.full_name }}
-          <span class="text-secondary font-normal">#{{ props.id }}</span>
+          <span class="text-secondary font-normal">#{{ shortenId(props.id) }}</span>
         </h1>
         <p class="text-sm text-secondary mb-1">@{{ props.username }}</p>
         <div class="flex gap-1">
