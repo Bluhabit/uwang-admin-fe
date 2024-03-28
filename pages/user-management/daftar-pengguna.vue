@@ -4,7 +4,6 @@ const route = useRouter();
 
 onMounted(async () => {
   await listUserStore.fetchUserWithPagination();
-  console.log("datauser", listUserStore.result);
 });
 
 function goToDetailUser(idUser) {

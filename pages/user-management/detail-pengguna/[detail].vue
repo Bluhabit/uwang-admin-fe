@@ -1,6 +1,13 @@
 <script setup>
 const route = useRoute();
-const uuid = route.params.detail;
+const listUserStore = useListUser();
+
+
+onMounted(async () => {
+  await listUserStore.fetchUserWithPagination();
+});
+
+
 const dataDummy = {
   id: "1551b951-5506-48cf-bb76-4804563e6287",
   email: "azkigm03@gmail.com",
